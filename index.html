@@ -1,85 +1,102 @@
 <!DOCTYPE html>
 <html>
-   <head>
-   	<link rel="icon" type="image/x-icon" href="favicon.ico"/>
-      <title>Home</title>
-      <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-138436023-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-138436023-1');
-</script>
-      <script src="three.r92.min.js"></script>
-      <script src="vanta.clouds.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="styles.css">
-      <script type="text/javascript">
-         function toggle_visibility(foo) {
-            var e = document.getElementById(foo);
-            if(e.style.display == 'block')
-               e.style.display = 'none';
-            else
-               e.style.display = 'block';
-         }
-      </script>
-   </head>
-   <body>
-      <div id="clouds" class="container">
-      <nav role="navigation">
-         <div id="menuToggle">
-            <input type="checkbox"/>
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul id="menu">
-               <a href="index.html">
-                  <li>Home</li>
-               </a>
-               <a href="aboutme.html">
-                  <li>About</li>
-               </a>
-            </ul>
-         </div>
-      </nav>
-      <div class="content">
-         <h1 id="item">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>Home</title>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-138436023-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-138436023-1');
+    </script>
+    <script src="three.r92.min.js"></script>
+    <script src="vanta.clouds.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div id="clouds" class="container">
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="aboutme.html">
+                        <li>About</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
+        <div class="content">
+            <h1 id="item">
             Benny's Site
          </h1>
-         <h2 id="item">
+            <h2 id="item">
             A page for all of my online designs and work.
          </h2>
-         <center>
-            <p onclick="toggle_visibility('foo');"><button class="button">View my work</button></p>
-      </div>
-      <footer class="footer">
-      	<div id="foo">
-      		<h2 style="padding:1px; margin:1px;">My work~</h2>
-<div class="row">
-  <div class="column">
-  	<h3>Dynamic Design</h3>
-    <center><a href="https://bennynottonson2.github.io/benny/index.html" target="_blank"><img id="img" src="dynamic.png" style="height:193px; width:380px;"></a></center>
-  </div>
-  <div class="column">
-  	<h3>Bootstrap Design</h3>
-    <center><a href="https://bennynottonson4.github.io/index.html" target="_blank"><img id="img" src="bootstrap.png" style="height:193px; width:380px;"></a></center>
-  </div>
-</div>
-      		<!--Where more images go-->
-      	</div>
-</center>
-      	</footer>
-      <script>
-         VANTA.CLOUDS({
-           el: "#clouds",
-           backgroundColor: 0x0,
-           skyColor: 0x0,
-           cloudColor: 0xaa3916,
-           cloudShadowColor: 0xff5a00,
-           sunColor: 0x0,
-           sunGlareColor: 0x0,
-           sunlightColor: 0xcf6d0a
-         })
-      </script>
-   </body>
+            <center>
+                <p>
+                    <button class="button">View my work</button>
+                </p>
+        </div>
+        <footer class="footer">
+            <div id="box" class="box hidden visuallyhidden">
+                <h2 style="padding:1px; margin:1px;">My work~</h2>
+                <div class="row">
+                    <div class="column">
+                        <h3>Dynamic Design</h3>
+                        <center>
+                            <a href="https://bennynottonson2.github.io/benny/index.html" target="_blank"><img id="img" src="dynamic.png" style="height:193px; width:380px;"></a>
+                        </center>
+                    </div>
+                    <div class="column">
+                        <h3>Bootstrap Design</h3>
+                        <center>
+                            <a href="https://bennynottonson4.github.io/index.html" target="_blank"><img id="img" src="bootstrap.png" style="height:193px; width:380px;"></a>
+                        </center>
+                    </div>
+                </div>
+                <!--Where more images go-->
+            </div>
+            </center>
+        </footer>
+        <script>
+            VANTA.CLOUDS({
+                el: "#clouds",
+  backgroundColor: 0x20202,
+  skyColor: 0x0,
+  cloudColor: 0x984227,
+  cloudShadowColor: 0xc54612,
+  sunColor: 0x0,
+  sunGlareColor: 0x0,
+  sunlightColor: 0xe6790c
+            })
+        </script>
+        <script type="text/javascript">
+          var box = $('#box');
+
+$('button').on('click', function () {
+  
+  if (box.hasClass('hidden')) {
+    box.removeClass('hidden');
+  } else {
+      box.addClass('hidden');
+}
+});
+</script>
+</body>
+
 </html>
