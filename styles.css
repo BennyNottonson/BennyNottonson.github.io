@@ -6,7 +6,7 @@ html,body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  overflow: hidden;
+  overflow: hidden!important;
   cursor: url("laser.png"), url("laser.cur"), default;
   cursor: url("laser.png"), url("laser.cur"), pointer;
 }
