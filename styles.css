@@ -31,7 +31,7 @@ h1 {
   color: white;
   text-align: center;
   margin-top: 10vh;
-  font-size: 65px;
+  font-size: 3.385vw;
   font-weight: lighter;
 }
 
@@ -39,7 +39,7 @@ h2 {
   color: #e8e8e8;
   text-align: center;
   margin-top: 2vh;
-  font-size: 35px;
+  font-size: 1.823vw;
   font-weight: lighter;
 }
 
@@ -58,8 +58,8 @@ a:hover {
 #menuToggle {
   display: block;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 2.604vw;
+  left: 2.604vw;
   z-index: 101;
   -webkit-user-select: none;
   user-select: none;
@@ -68,11 +68,11 @@ a:hover {
 #menuToggle input {
   display: block;
   z-index: 102;
-  width: 40px;
-  height: 32px;
+  width: 2.083vw;
+  height: 1.667vw;
   position: absolute;
-  top: -7px;
-  left: -5px;
+  top: -0.365vw;
+  left: -0.260vw;
   cursor: pointer;
   opacity: 0;
   z-index: 2;
@@ -82,14 +82,14 @@ a:hover {
 #menuToggle span {
   display: block;
   padding: 0;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
+  width: 1.719vw;
+  height: 0.208vw;
+  margin-bottom: 0.260vw;
   position: relative;
   background: #cdcdcd;
-  border-radius: 3px;
+  border-radius: 0.156vw;
   z-index: -10;
-  transform-origin: 4px 0px;
+  transform-origin: 0.208vw 0vw;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
   background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
   opacity 0.55s ease;
@@ -105,7 +105,7 @@ a:hover {
 
 #menuToggle input:checked ~ span {
   opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
+  transform: rotate(45deg) translate(-0.104vw, -0.052vw);
   background: #232323;
 }
 
@@ -115,18 +115,18 @@ a:hover {
 }
 
 #menuToggle input:checked ~ span:nth-last-child(2) {
-  transform: rotate(-45deg) translate(0, -1px);
+  transform: rotate(-45deg) translate(0, -0.052vw);
 }
 
 #menu {
   position: relative;
   display: inline-block;
   z-index: 1;
-  width: 300px;
-  margin: -100px 0 0 -50px;
-  padding: 40px;
+  width: 15.625vw;
+  margin: -5.208vw 0 0 -2.604vw;
+  padding: 2.083vw;
   opacity: 0.4;
-  padding-top: 125px;
+  padding-top: 6.510vw;
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
@@ -137,8 +137,8 @@ a:hover {
 }
 
 #menu li {
-  padding: 5px;
-  font-size: 22px;
+  padding: 0.260vw;
+  font-size: 1.146vw;
   position: relative;
   z-index: 101;
 }
@@ -157,17 +157,17 @@ nav {
   background-color: #f4511e;
   border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 0.833vw 1.667vw;
   text-align: center;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 0.833vw;
+  margin: 0.208vw 0.104vw;
   opacity: 0.6;
   transition: 0.3s;
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
-  border: 2px solid #000;
-  border-radius: 40px;
+  border: 0.104vw solid #000;
+  border-radius: 2.083vw;
   outline: none;
 }
 
@@ -186,7 +186,7 @@ nav {
 .column {
   float: left;
   width: 49%;
-  padding: 5px;
+  padding: 0.260vw;
 }
 
 /* Clear floats after image containers */
@@ -204,12 +204,12 @@ h3 {
 .box {
   transition: all 1s linear;
   display: block;
-transform: translateY(25px);
+  transform: translateY(2.350vw);
   background-color: rgba(0,0,0,.5);
 }
 
 .hidden {
-transform: translateY(500px);
+transform: translateY(26.042vw);
   background-color: rgba(0,0,0,0);
 }
 
