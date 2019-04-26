@@ -7,14 +7,6 @@ html,body {
   min-height: 100vh;
   margin: 0;
   overflow: hidden!important;
-  cursor: url("laser.png"), url("laser.cur"), default;
-  cursor: url("laser.png"), url("laser.cur"), pointer;
-}
-
-body {
-  cursor: URL(images/cursorimage.cur);
- /* IE */
-  cursor: URL(images/cursorimage.gif);
 }
 
 #clouds {
