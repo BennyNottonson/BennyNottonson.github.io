@@ -168,6 +168,14 @@ h3 {
   display: none;
 }
 
+@keyframes myfirst {
+  0%   {left:-200px; top:0;}
+  25%  {left:-150px; top:0;}
+  50%  {left:-100px; top:0;}
+  75%  {left:-50px; top:0;}
+  100% {left:0px; top:0;}
+}
+
 .menushow {
   position: relative;
   display: inline-block;
@@ -180,6 +188,7 @@ h3 {
   z-index: -10;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
+  animation: myfirst .3s linear;
 }
 
 li {
