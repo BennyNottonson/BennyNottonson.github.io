@@ -164,11 +164,26 @@ h3 {
   stroke-dashoffset: -86px;
 }
 
-.outermenu {
-  display: none;
+@keyframes second {
+  0%   {left:0px; top:0;}
+  25%  {left:-50px; top:0;}
+  50%  {left:-100px; top:0;}
+  75%  {left:-150px; top:0;}
+  100% {left:-200px; top:0;}
 }
 
-@keyframes myfirst {
+.outermenu {
+  opacity: 0;
+  width: 10vw;
+  background: #ededed;
+  float: left;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  transition: all .3s linear;
+  animation: second .3s linear;
+}
+
+@keyframes first {
   0%   {left:-200px; top:0;}
   25%  {left:-150px; top:0;}
   50%  {left:-100px; top:0;}
@@ -184,11 +199,12 @@ h3 {
   opacity: 0.4;
   background: #ededed;
   list-style-type: none;
+  transition: all .3s linear;
   float: left;
   z-index: -10;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
-  animation: myfirst .3s linear;
+  animation: first .3s linear;
 }
 
 li {
