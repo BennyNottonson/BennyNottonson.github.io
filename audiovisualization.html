@@ -435,5 +435,19 @@
   <input type="file" id="input" accept="audio/*" onchange="handleFiles(this.files)"/>
   <span id="loading"></span>
   <canvas id="freq" width="1024" height="525"></canvas>
+      <script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+document.location = "mobile.html";
+}
+//-->
+</script>
+<script language=javascript>
+<!--
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+   location.replace("http://bennynottonson.com/mobile.html");
+}
+-->
+</script>
 </body>
 </html>
