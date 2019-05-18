@@ -64,19 +64,18 @@
 }
 .outermenu {
   opacity: 0;
-  width: 10vw;
+  width: 8vw;
   background: #ededed;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
   margin-left:-200px;
   transition: all .5s ease-in;
   float:left;
-  height:8vh;
 }
 .menushow {
   position: relative;
   display: inline-block;
-  width: 10vw;
+  width: 8vw;
   opacity: 0.4;
   background: #ededed;
   list-style-type: none;
