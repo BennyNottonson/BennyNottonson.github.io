@@ -228,3 +228,15 @@ a:hover {
 color:tomato;
 }
 body{cursor:url(cursor.cur), default;} a:hover {cursor:url(cursor2.cur),pointer;} td, th, tr, option, select, label, input, svg, path, button:hover {cursor:url(cursor2.cur),pointer;}
+.container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+.text {
+  font-weight: 100;
+  font-size: 2vw;
+  color: #fafafa;
+}
