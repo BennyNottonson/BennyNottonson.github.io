@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Benny Nottonson</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript>
+            <link rel="stylesheet" href="assets/css/noscript.css" />
+        </noscript>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    </head>
+    <body class="is-preload" onload="checkLogin();">
+        <div id="wrapper">
+            <header id="header">
+                <div class="logo">
+                    <span class="icon fa-gem"></span>
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h1>You made it</h1>
+                        <p id="changed">Enjoy.</p>
+                        <input type="button" value="Sign Out" onclick="combine()" />
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#game1">Game One</a></li>
+                        <li><a href="#game2">Game Two</a></li>
+                        <li><a href="#game3">Game Three</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="main">
+                <article id="game1">
+                    <h2 class="major">Game 1</h2>
+                    <span class="image main"><img src="images/pic03.jpg" alt=""/></span>
+                </article>
+                <article id="game2">
+                    <h2 class="major">Game 2</h2>
+                    <span class="image main"><img src="images/pic03.jpg" alt=""/></span>
+                </article>
+                <article id="game3">
+                    <h2 class="major">Game 3</h2>
+                    <span class="image main"><img src="images/pic03.jpg" alt=""/></span>
+                </article>
+            </div>
+            <footer id="footer">
+                <p class="copyright">&copy; Benny Nottonson.</p>
+            </footer>
+        </div>
+        <div id="bg"></div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+        <script>
+            var firebaseConfig = {
+              apiKey: "AIzaSyBQwR2N03sIdxNjBdMY0VzuJtL4Lh1SJRE",
+              authDomain: "website-42623.firebaseapp.com",
+              databaseURL: "https://website-42623.firebaseio.com",
+              projectId: "website-42623",
+              storageBucket: "website-42623.appspot.com",
+              messagingSenderId: "1064715570137",
+              appId: "1:1064715570137:web:77da95923f1e5e796be7c8",
+              measurementId: "G-5ENWSS2MKM"
+            };
+            
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            
+              var database = firebase.database();
+            //Write example
+              function writeUserData(userId, name, email, imageUrl) {
+            firebase.database().ref('users/' + userId).set({
+            username: name,
+            email: email,
+            profile_picture : imageUrl
+            });
+            }
+
+            function checkLogin() {
+                setTimeout(() => {
+                    var user = firebase.auth().currentUser;
+                if (!user) {
+                window.location.href = "index.html";
+            }
+                }, 1000);
+            }
+
+            function combine() {
+                firebase.auth().signOut();
+                checkLogin();
+            }
+        </script>
+    </body>
+</html>

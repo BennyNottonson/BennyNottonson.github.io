@@ -1,98 +1,149 @@
 <!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-	<head>
-		<title>Benny Nottonson</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+    <head>
+        <title>Benny Nottonson</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript>
+            <link rel="stylesheet" href="assets/css/noscript.css" />
+        </noscript>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    </head>
+    <body class="is-preload" onload="checkLoginStart();">
+        <div id="wrapper">
+            <header id="header">
+                <div class="logo">
+                    <span class="icon fa-gem"></span>
+                </div>
+                <div class="content">
+                    <div class="inner">
+                        <h1>Welcome</h1>
+                        <p>Sign In or Create an Account</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#signUpID">Sign Up</a></li>
+                        <li><a href="#signInID">Sign In</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="main">
+                <article id="signUpID">
+                    <h2 class="major">Sign Up</h2>
+                    <span id="errorCodeID" style="color:red;;"></span>
+                    <span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+                    <form id="signUpForm" name="signUpForm" autocomplete="off">
+                        <input type="text" id="email" placeholder="Email" onkeypress="return runScript(event)"><br>
+                        <input type="password" id="pass" placeholder="Password" onkeypress="return runScript(event)"><br><br>
+                        <input type="button" value="Submit" onclick="sendDataForSignUp();" />
+                    </form>
+                </article>
+                <article id="signInID">
+                    <h2 class="major">Sign In</h2>
+                    <span id="errorCodeID" style="color:red;;"></span>
+                    <span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+                    <form id="signInForm" name="signInForm" autocomplete="off">
+                        <input type="text" id="emailIn" placeholder="Email" onkeypress="return runScriptTwo(event)"><br>
+                        <input type="password" id="passIn" placeholder="Password" onkeypress="return runScriptTwo(event)"><br><br>
+                        <input type="button" value="Submit" onclick="sendDataForSignIn();" />
+                    </form>
+                </article>
+            </div>
+            <footer id="footer">
+                <p class="copyright">&copy; Benny Nottonson.</p>
+            </footer>
+        </div>
+        <div id="bg"></div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+        <script>
+        	//----------------------------CONFIG START----------------------------------------------------------//
+			var firebaseConfig = {
+			    apiKey: "AIzaSyBQwR2N03sIdxNjBdMY0VzuJtL4Lh1SJRE",
+			    authDomain: "website-42623.firebaseapp.com",
+			    databaseURL: "https://website-42623.firebaseio.com",
+			    projectId: "website-42623",
+			    storageBucket: "website-42623.appspot.com",
+			    messagingSenderId: "1064715570137",
+			    appId: "1:1064715570137:web:77da95923f1e5e796be7c8",
+			    measurementId: "G-5ENWSS2MKM"
+			};
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-gem"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Hello</h1>
-								<p>My name is <a href="https://instagram.com/bennynottonson" target="_blank">Benny Nottonson</a> and I design websites for fun<br />
-								<a href="https://en.wikipedia.org/wiki/Masochism" target="_blank">Because I hate myself.</a> </p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-					</header>
+			var database = firebase.database();
+            //----------------------------CONFIG END------------------------------------------------------------//
+            //----------------------------CREATE USER START-----------------------------------------------------//
+			function sendDataForSignUp() {
+			    firebase.auth().createUserWithEmailAndPassword(document.getElementById('email').value, document.getElementById('pass').value);
+			    setTimeout(() => {
+			        if (checkLogin()) {
+			            document.getElementById("signInForm").reset();
+			            window.location.href = "auth.html"; //to be changed
+			        } else {
+			            document.getElementById("errorCodeID").textContent = "An error occurred";
+			        }
+			    }, 1000);
+			}
+            //----------------------------CREATE USER END-------------------------------------------------------//
+            //----------------------------LOGIN USER START------------------------------------------------------//
+			function sendDataForSignIn() {
+			    firebase.auth().signInWithEmailAndPassword(document.getElementById('emailIn').value, document.getElementById('passIn').value);
+			    setTimeout(() => {
+			        checkLogin();
+			    }, 1000);
+			}
+            //----------------------------LOGIN USER END--------------------------------------------------------//
+            //----------------------------CHECK LOGIN START-----------------------------------------------------//
+            function checkLoginStart() {
+			    setTimeout(() => {
+			        var user = firebase.auth().currentUser;
 
-				<!-- Main -->
-					<div id="main">
+			        if (user) {
+			            window.location.href = "auth.html";
+			        }
+			    }, 1000);
+			}
 
-						<!-- Intro -->
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>I am Benny These are words (English).</p>
-								<p>Sometimes I do things, sometimes I don't.</p>
-							</article>
+			function checkLogin() {
+			    var user = firebase.auth().currentUser;
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>These are also words, again, in English.</p>
-								<p>I did this.</p>
-							</article>
+			    if (user) {
+			        document.getElementById("signInForm").reset();
+			        document.getElementById("errorCodeID").textContent = "";
+			        window.location.href = "auth.html";
+			    } else {
+			        console.log("Error");
+			        document.getElementById("errorCodeID").textContent = "An error occurred";
+			    }
+			}
+            //----------------------------CHECK LOGIN END-------------------------------------------------------//
+            //----------------------------CHECK KEY START-------------------------------------------------------//
+            function runScript(e) {
+			    if (e.keyCode == 13) {
+			        sendDataForSignUp();
+			    }
+			}
 
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>I write words, usually in English.</p>
-							</article>
-
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<ul class="icons">
-									<li><a href="https://twitter.com/1r4Val" target = "_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="https://www.instagram.com/bennynottonson/" target = "_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/BennyNottonson" target = "_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Benny Nottonson. Design: <a href="https://github.com">GITHUB</a>.</p>
-					</footer>
-
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+			function runScriptTwo(e) {
+			    if (e.keyCode == 13) {
+			        sendDataForSignIn();
+			    }
+			}
+			//----------------------------CHECK KEY END---------------------------------------------------------//
+        </script>
+    </body>
 </html>
